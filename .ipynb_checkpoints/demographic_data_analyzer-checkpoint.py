@@ -33,14 +33,10 @@ def calculate_demographic_data(print_data=True):
     unique_education=set(df.drop_duplicates(['education'])['education'])
     masterEdu=set(['Bachelors','Masters','Doctorate'])
     lowerEdu=unique_education - masterEdu
-
+    
     
     higher_education = df1[df1.education.isin(masterEdu)]['education'].count()
     lower_education = df1[df1.education.isin(lowerEdu)]['education'].count()
-    
-    people_with_advance_edu=df1[df1.education.isin(masterEdu)]['education'].count()
-    people_with_lower_edu=df1[df1.education.isin(lowerEdu)]['education'].count()
-    total_people=df1['education'].count()
     
     higher_education_rich1 = df1[(df1.education.isin(masterEdu)) & (df1.salary=='>50K')]['education'].count()
     lower_education_rich1 = df1[(df1.education.isin(lowerEdu)) & (df1.salary=='>50K') ]['education'].count()
